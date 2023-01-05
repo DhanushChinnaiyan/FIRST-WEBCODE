@@ -1,4 +1,6 @@
 
+
+// -----------FETCHIN SPEED IS VERY SLOW SO THE PRODUCTS ARE RENDERED SPEED IS VERY SLOW, PLEASE WAIT FEW SECOND FOR LOADING THE PRODUCTS-------//
 // ----------------creating header div:---------------------//
 
 let header=document.createElement("div");
@@ -24,6 +26,8 @@ let pagination=document.querySelector(".pagination-div");
 let paginationlink= document.getElementsByClassName("pagination-link")
 let currentvalue=1;
 
+// ---------------- pagination CLICK FUNCTION---------------------//
+       
 
 function paginationFunction(event){
     
@@ -36,6 +40,7 @@ function paginationFunction(event){
      console.log(currentvalue)
 }
 
+     //  -------PREVIOUS BUTTON FUNCTION-----------//
 function previousbtnFunction(){   
     console.log(currentvalue);
     for(var i=0;i<paginationlink.length;i++){
@@ -51,6 +56,8 @@ function previousbtnFunction(){
      }
 }
 
+           //  -------NEXT BUTTON FUNCTION-----------//
+
 function nextbtnFunction(){
      for(var i=0;i<paginationlink.length;i++){
          paginationlink[i].classList.remove("active")
@@ -65,6 +72,8 @@ function nextbtnFunction(){
         }
     }
 
+         //  -------FIRST BUTTON FUNCTION-----------//
+
 function firstbtnFunction(){
     for(var i=0;i<paginationlink.length;i++){
          paginationlink[i].classList.remove("active")
@@ -74,6 +83,9 @@ function firstbtnFunction(){
         currentvalue=1;
         console.log(currentvalue)
     }
+
+         //  -------LAST BUTTON FUNCTION-----------//
+
 function lastbtnFunction(){
     for(var i=0;i<paginationlink.length;i++){
          paginationlink[i].classList.remove("active")
@@ -83,6 +95,7 @@ function lastbtnFunction(){
          console.log(currentvalue)
 }
 
+     //  -------PAGINATION INNER BODY-----------//
 
 pagination.innerHTML += `<ul class="pagination-body">
                         <li class="first " value="1" onclick="firstbtnFunction()">First</li>
@@ -102,6 +115,9 @@ pagination.innerHTML += `<ul class="pagination-body">
                         </ul>`
 
                     
+
+ //-------------------FETCHING FUNCTION-------------------------//
+
 async function productCard(start,end){
     try {
         let response = await fetch("https://makeup-api.herokuapp.com/api/v1/products.json",{
@@ -110,12 +126,17 @@ async function productCard(start,end){
     let data = await response.json();
     console.log(data)
 
+
+          //  -------CREATING CARD -DIV-----------//
+
     let card =document.createElement("div");
     card.setAttribute("class","main-card");
     content.appendChild(card);
     
     let productCards=document.querySelector(".main-card")
           
+              //  -------CREATING CARD INNER BODY ELEMENT-----------//
+
         for(var i=start;i<end;i++){
             let brand=data[i].brand;
             let productName=data[i].name;
@@ -146,6 +167,10 @@ async function productCard(start,end){
     }
 }
 productCard(0,30);
+
+
+          //  ---------- PAGINATION -CLICK-FUNCTION-----------//
+
 let paginationBody=document.querySelector(".pagination-body");
 paginationBody.addEventListener("click",()=>{
      
