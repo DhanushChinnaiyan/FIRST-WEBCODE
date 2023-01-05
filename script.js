@@ -1,6 +1,6 @@
 
 
-// -----------FETCHIN SPEED IS VERY SLOW SO THE PRODUCTS ARE RENDERED SPEED IS VERY SLOW, PLEASE WAIT FEW SECOND FOR LOADING THE PRODUCTS-------//
+// -----------FETCHIN SPEED IS VERY SLOW SO THE PRODUCTS ARE RENDERED VERY SLOW, PLEASE WAIT FEW SECOND FOR LOADING THE PRODUCTS-------//
 // ----------------creating header div:---------------------//
 
 let header=document.createElement("div");
