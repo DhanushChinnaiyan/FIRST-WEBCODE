@@ -99,6 +99,7 @@ ul{
 }
 .card:hover{
     box-shadow:  10px 10px 40px black;
+    cursor: context-menu;
 }
 
 /* <----------CARD-INNER-IMAGE STYLES---------------> */
